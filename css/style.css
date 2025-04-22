@@ -1,0 +1,318 @@
+/* =======================================================
+   RESET E BODY CONFIGURAÇÃO
+======================================================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #121212;
+  color: #f5f5f5;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  overflow-x: hidden;
+  line-height: 1.6;
+  position: relative;
+  transform-origin: center center;
+  background-image: radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.01), transparent),
+  radial-gradient(circle at 80% 70%, rgba(255, 255, 255, 0.01), transparent);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  /* Aplica o zoomBody na entrada do site */
+  animation: zoomBody 1s ease-out forwards;
+}
+
+body.zoom-out {
+  animation: zoomOutBody 0.5s ease-in-out forwards;
+}
+
+@keyframes zoomOutBody {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(0.97);
+  }
+}
+
+@keyframes zoomBody {
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* =======================================================
+   CANVAS CHUVA
+======================================================= */
+#rain-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+/* =======================================================
+   SCROLL APARECER COM GLOW
+======================================================= */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 1s ease-out;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.04));
+}
+
+#page-container {
+  position: relative;
+  z-index: 1;
+  opacity: 0;
+  transform: scale(0.95);
+  animation: zoomIn 1.2s ease-out forwards;
+}
+
+@keyframes zoomIn {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* =======================================================
+   HEADER
+======================================================= */
+header {
+  background-color: #1a1a1a;
+  text-align: center;
+  padding: 40px 20px;
+  border-bottom: 1px solid #2a2a2a;
+}
+
+.logo {
+  max-height: 80px;
+  margin-bottom: 15px;
+}
+
+h1 {
+  font-size: 2.5em;
+  font-weight: 300;
+  color: #fff;
+  letter-spacing: 1px;
+  text-shadow: 0 0 3px rgba(255, 255, 255, 0.1);
+}
+
+/* =======================================================
+   MENU
+======================================================= */
+nav {
+  background: rgba(15, 15, 15, 0.85);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.4);
+  padding: 14px 0;
+  position: sticky;
+  top: 0;
+  z-index: 99;
+}
+
+.menu {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 32px;
+}
+
+.menu a {
+  color: #eee;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 10px 18px;
+  position: relative;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  border-radius: 6px;
+}
+
+.menu a::before {
+  content: '';
+  position: absolute;
+  bottom: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0%;
+  height: 2px;
+  background: #fff;
+  transition: width 0.3s ease;
+}
+
+.menu a:hover::before {
+  width: 80%;
+}
+
+.menu a:hover {
+  color: #fff;
+  transform: scale(1.05);
+}
+
+.submenu {
+  opacity: 0;
+  transform: translateY(15px);
+  position: absolute;
+  background-color: #181818;
+  border-radius: 8px;
+  padding: 10px 0;
+  min-width: 200px;
+  list-style: none;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.submenu li a {
+  color: #ccc;
+  padding: 10px 20px;
+  display: block;
+}
+
+.submenu li a:hover {
+  background-color: #2e2e2e;
+  color: #fff;
+}
+
+.has-submenu {
+  position: relative;
+}
+
+.has-submenu>a::after {
+  content: '▼';
+  font-size: 0.6em;
+  margin-left: 6px;
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.has-submenu:hover>a::after {
+  transform: rotate(180deg);
+}
+
+.has-submenu:hover .submenu,
+.has-submenu:focus-within .submenu {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* =======================================================
+   CONTEÚDO
+======================================================= */
+main {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+main h2 {
+  font-size: 2em;
+  margin-bottom: 20px;
+  color: #ffffff;
+  text-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+}
+
+main p {
+  font-size: 1.1em;
+  color: #cccccc;
+  margin-bottom: 15px;
+  line-height: 1.7;
+  transition: all 0.4s ease;
+}
+
+main p:hover {
+  color: #fff;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.1);
+}
+
+/* =======================================================
+   FOOTER
+======================================================= */
+footer {
+  background-color: #000000;
+  color: #888;
+  text-align: center;
+  padding: 20px;
+  margin-top: 50px;
+  font-size: 0.9em;
+  border-top: 1px solid #2a2a2a;
+}
+
+/* =======================================================
+   IMAGEM + FRASE
+======================================================= */
+.imagem-e-frase {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 40px 60px;
+  gap: 40px;
+  flex-wrap: wrap;
+  z-index: 2;
+  position: relative;
+}
+
+.imagem-e-frase img.imagem-mistica {
+  width: 220px;
+  object-fit: contain;
+  filter: none;
+  opacity: 1;
+  transition: transform 0.4s ease;
+}
+
+.imagem-e-frase img.imagem-mistica:hover {
+  transform: scale(1.05);
+}
+
+#frase-digitada {
+  font-size: 1.3em;
+  color: #ccc;
+  font-style: italic;
+  font-family: 'Courier New', monospace;
+  white-space: nowrap;
+  overflow: hidden;
+  min-height: 1.5em;
+  display: flex;
+  align-items: center;
+  transition: all 0.5s ease;
+}
+
+.cursor {
+  display: inline-block;
+  width: 10px;
+  height: 1.2em;
+  margin-left: 5px;
+  background: #fff;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}

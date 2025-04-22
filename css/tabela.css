@@ -1,0 +1,152 @@
+/* ====================
+   DESIGN DARK POÉTICO (style.css)
+==================== */
+
+body {
+  background-color: #0d0d0d;
+  color: #e6e6e6;
+  font-family: 'Segoe UI', Tahoma, sans-serif;
+  scroll-behavior: smooth;
+}
+
+/* Cabeçalho */
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background-color: #151515;
+  border-bottom: 1px solid #2a2a2a;
+}
+
+header .logo {
+  width: 80px;
+  height: auto;
+  margin-right: 10px;
+}
+
+header h1 {
+  font-size: 2.5em;
+  color: #fafafa;
+  text-align: center;
+  margin: 0;
+}
+
+/* Conteúdo principal */
+main {
+  padding: 40px 20px;
+  max-width: 900px;
+  margin: 0 auto;
+  color: #cccccc;
+}
+
+main h2 {
+  font-size: 2em;
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+main p {
+  font-size: 1.15em;
+  line-height: 1.8;
+  color: #ccc;
+  text-align: justify;
+  padding: 0 12px;
+  margin-bottom: 20px;
+}
+
+/* Tabela */
+.tabela-causas {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 30px;
+}
+
+.tabela-causas th,
+.tabela-causas td {
+  padding: 15px;
+  text-align: left;
+  border: 1px solid #333;
+}
+
+.tabela-causas th {
+  background-color: #222;
+  color: #fafafa;
+}
+
+.tabela-causas td {
+  background-color: #333;
+}
+
+.tabela-causas ul {
+  padding-left: 20px;
+}
+
+.tabela-causas ul li {
+  margin-bottom: 5px;
+}
+
+/* Botão de voltar */
+a.voltar-inicio {
+  display: inline-block;
+  margin-top: 30px;
+  padding: 14px 30px;
+  background-color: #2a2a2a;
+  color: #ffffff;
+  text-decoration: none;
+  border: 2px solid #555;
+  border-radius: 12px;
+  font-weight: bold;
+  font-size: 1.1em;
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease-in-out;
+}
+
+a.voltar-inicio:hover {
+  background-color: #111;
+  color: #fff;
+  transform: scale(1.05);
+  box-shadow: 0 0 16px rgba(255, 255, 255, 0.2);
+}
+
+/* Rodapé */
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #151515;
+  color: #777;
+}
+
+footer p {
+  margin: 0;
+  font-size: 0.9em;
+}
+
+/* Animações */
+.zoom-in {
+  animation: zoomIn 0.8s ease-in-out;
+}
+
+.fade-in {
+  animation: fadeIn 1.2s ease-in;
+}
+
+@keyframes zoomIn {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
